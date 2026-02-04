@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Data Analysis Project</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    table { border-collapse: collapse; width: 50%; margin-bottom: 20px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: center; }
+    th { background-color: #f2f2f2; }
+    canvas { max-width: 600px; }
+  </style>
+</head>
+<body>
+  <h1>Data Analysis Dashboard</h1>
+
+  <!-- Data Table -->
+  <h2>Sample Dataset</h2>
+  <table>
+    <tr><th>Year</th><th>Sales</th></tr>
+    <tr><td>2021</td><td>150</td></tr>
+    <tr><td>2022</td><td>200</td></tr>
+    <tr><td>2023</td><td>250</td></tr>
+  </table>
+
+  <!-- Chart -->
+  <h2>Sales Trend</h2>
+  <canvas id="salesChart"></canvas>
+
+  <script>
+    const ctx = document.getElementById('salesChart').getContext('2d');
+    const salesChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['2021', '2022', '2023'],
+        datasets: [{
+          label: 'Sales',
+          data: [150, 200, 250],
+          borderColor: 'blue',
+          backgroundColor: 'lightblue',
+          fill: true
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          title: { display: true, text: 'Sales Growth Over Years' }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
