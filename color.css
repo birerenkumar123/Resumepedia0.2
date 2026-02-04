@@ -1,72 +1,175 @@
+/* ===============================
+   🌌 SOLAR SYSTEM BACKGROUND CSS
+   =============================== */
+
 body {
-  font-family: Arial, sans-serif;
-  background: #f4f6f9;
   margin: 0;
   padding: 0;
+  font-family: "Poppins", sans-serif;
+  color: white;
+
+  /* Space Gradient Background */
+  background: radial-gradient(circle at top, #1a0033, #000010, black);
+  overflow-x: hidden;
 }
+
+/* ⭐ Stars Animation Layer */
+body::before {
+  content: "";
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: url("https://www.transparenttextures.com/patterns/stardust.png");
+  opacity: 0.5;
+  animation: starsMove 80s linear infinite;
+  z-index: -2;
+}
+
+/* 🌍 Planets Glow Layer */
+body::after {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 30%, rgba(0, 153, 255, 0.4), transparent 60%),
+              radial-gradient(circle at 80% 70%, rgba(255, 153, 0, 0.3), transparent 60%),
+              radial-gradient(circle at 50% 90%, rgba(255, 0, 255, 0.2), transparent 70%);
+  z-index: -1;
+}
+
+/* ⭐ Moving Stars Animation */
+@keyframes starsMove {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(300px, 300px);
+  }
+}
+
+/* ===============================
+   🚀 Resume Container Glass Effect
+   =============================== */
 
 .resume-container {
+  width: 80%;
   max-width: 900px;
-  background: white;
-  margin: 30px auto;
+  margin: 50px auto;
   padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+
+  /* Glassmorphism */
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0px 0px 30px rgba(0, 200, 255, 0.4);
+
+  animation: fadeIn 1.5s ease-in-out;
 }
+
+/* Smooth Fade Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===============================
+   🌟 Headings
+   =============================== */
 
 h1 {
-  font-size: 32px;
-  margin-bottom: 5px;
-  color: #222;
-}
-
-.contact {
-  font-size: 14px;
-  color: #555;
-  margin-bottom: 25px;
-}
-
-.contact a {
-  color: #0077cc;
-  text-decoration: none;
+  font-size: 3rem;
+  text-align: center;
+  color: #00ccff;
+  text-shadow: 0 0 20px cyan;
 }
 
 h2 {
-  font-size: 20px;
-  color: #0077cc;
-  border-bottom: 2px solid #eee;
-  padding-bottom: 5px;
-  margin-top: 25px;
+  margin-top: 30px;
+  color: #ffcc00;
+  text-shadow: 0 0 10px orange;
+  border-left: 5px solid #00ccff;
+  padding-left: 10px;
 }
 
-p {
-  font-size: 15px;
-  line-height: 1.6;
-  color: #333;
+h3 {
+  color: #00ff99;
+  text-shadow: 0 0 10px lime;
 }
+
+/* ===============================
+   📌 Contact Links
+   =============================== */
+
+.contact a {
+  color: #00ccff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.contact a:hover {
+  color: #ffcc00;
+  text-shadow: 0 0 10px yellow;
+}
+
+/* ===============================
+   🛠 Skills Tags
+   =============================== */
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.skills span {
+  padding: 10px 15px;
+  border-radius: 20px;
+
+  background: rgba(0, 204, 255, 0.15);
+  border: 1px solid rgba(0, 204, 255, 0.4);
+
+  box-shadow: 0 0 10px rgba(0, 204, 255, 0.4);
+  transition: 0.3s;
+}
+
+.skills span:hover {
+  transform: scale(1.1);
+  background: rgba(255, 204, 0, 0.25);
+  box-shadow: 0 0 20px rgba(255, 204, 0, 0.8);
+}
+
+/* ===============================
+   📌 Lists
+   =============================== */
 
 ul {
   padding-left: 20px;
 }
 
-ul li {
-  margin-bottom: 8px;
-  font-size: 15px;
+li {
+  margin: 8px 0;
 }
 
-.skills span {
-  display: inline-block;
-  background: #0077cc;
-  color: white;
-  padding: 6px 12px;
-  border-radius: 20px;
-  margin: 5px;
-  font-size: 13px;
-}
+/* ===============================
+   🌠 Footer
+   =============================== */
 
 .footer {
+  margin-top: 40px;
   text-align: center;
-  margin-top: 30px;
-  font-size: 13px;
-  color: gray;
+  padding: 15px;
+  font-size: 0.9rem;
+
+  color: #bbb;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
+
+
